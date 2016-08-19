@@ -5,25 +5,25 @@
 ## or set invesre directly in variable 'm'
 
 makeCacheMatrix <- function(x = matrix()) {
-		##initialize 'm' with null value
+	##initialize 'm' with null value
         m <- NULL
 		
-		##function to set 'x' value
+	##function to set 'x' value
         set <- function(y) {
                 x <<- y
                 m <<- NULL
         }
 		
-		##function to get value of 'x'
+	##function to get value of 'x'
         get <- function() x
 		
-		##function to set 'm' value with inverse
+	##function to set 'm' value with inverse
         setsolve <- function(solve) m <<- solve
 		
-		##function to get saved inverse in variable 'm'
+	##function to get saved inverse in variable 'm'
         getsolve <- function() m
 		
-		##lising function
+	##lising function
         list(set = set, get = get,
              setsolve = setsolve,
              getsolve = getsolve)
@@ -42,8 +42,8 @@ cacheSolve <- function(x, ...) {
                 return(m)
         }
         
-		##if makeCacheMatrix$setsolve DOES NOT have value then calculate inverse
-		data <- x$get()
+	##if makeCacheMatrix$setsolve DOES NOT have value then calculate inverse
+	data <- x$get()
         m <- solve(data)
         x$setsolve(m)
         m
